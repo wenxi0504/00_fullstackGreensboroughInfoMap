@@ -4,9 +4,7 @@ import classes from './MeetupItem.module.css';
 
 function MeetupItem(props) {
   const router = useRouter();
-  function showDetailsHandler() { 
-    router.push('/'+props.id);
-  };
+  function showDetailsHandler(){ };
   return (
     <li className={classes.item}>
       <Card>
