@@ -37,8 +37,8 @@ function HomePage(props) {
     ;
 }
 
-// it has to be a getStaticProps name
-export async function getStaticProps() {
+// it has to be a getStateProps name
+export async function getStateProps() {
   // fetch data from an API
   return {
     props: {

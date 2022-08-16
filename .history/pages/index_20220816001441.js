@@ -21,7 +21,6 @@ const DUMMY_MEETUPS = [
 ];
 
 function HomePage(props) {
-  //using pre-render , dont need to use useState and useEffect
   // const [loadedMeetups, setLoadedMeetups] = useState([]);
 
   // useEffect(() => { 
@@ -31,14 +30,13 @@ function HomePage(props) {
   // }, []);
   return (
   
-      // <MeetupList meetups={loadedMeetups} />
-     <MeetupList meetups={props.meetups} />
+      <MeetupList meetups={loadedMeetups} />
     )
     ;
 }
 
-// it has to be a getStaticProps name
-export async function getStaticProps() {
+// it has to be a getStateProps name
+export async function getStateProps() {
   // fetch data from an API
   return {
     props: {

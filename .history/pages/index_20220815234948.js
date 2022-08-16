@@ -1,4 +1,4 @@
-import { useEffect,useState } from 'react';
+import { useEffect } from 'react';
 import MeetupList from "../components/meetups/MeetupList";
 import Layout from '../components/layout/Layout'
 const DUMMY_MEETUPS = [
@@ -20,32 +20,13 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage(props) {
-  //using pre-render , dont need to use useState and useEffect
-  // const [loadedMeetups, setLoadedMeetups] = useState([]);
-
-  // useEffect(() => { 
-  //   //send a http request and fetch data
-  //   setLoadedMeetups(DUMMY_MEETUPS);
-
-  // }, []);
+function HomePage() {
+  useEffect(() => { }, []);
   return (
   
-      // <MeetupList meetups={loadedMeetups} />
-     <MeetupList meetups={props.meetups} />
+      <MeetupList meetups={DUMMY_MEETUPS} />
     )
     ;
 }
-
-// it has to be a getStaticProps name
-export async function getStaticProps() {
-  // fetch data from an API
-  return {
-    props: {
-      meetups: DUMMY_MEETUPS,
-    }
-  };
-  
- }
 
 export default HomePage;

@@ -20,32 +20,19 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage(props) {
-  //using pre-render , dont need to use useState and useEffect
-  // const [loadedMeetups, setLoadedMeetups] = useState([]);
+function HomePage() {
+  const [loadedMeetups, setLoadedMeetups] = useState([]);
 
-  // useEffect(() => { 
-  //   //send a http request and fetch data
-  //   setLoadedMeetups(DUMMY_MEETUPS);
+  useEffect(() => { 
+    //send a http request and fetch data
+    setLoadedMeetups(DUMMY_MEETUPS);
 
-  // }, []);
+  }, []);
   return (
   
-      // <MeetupList meetups={loadedMeetups} />
-     <MeetupList meetups={props.meetups} />
+      <MeetupList meetups={loadedMeetups} />
     )
     ;
 }
-
-// it has to be a getStaticProps name
-export async function getStaticProps() {
-  // fetch data from an API
-  return {
-    props: {
-      meetups: DUMMY_MEETUPS,
-    }
-  };
-  
- }
 
 export default HomePage;
