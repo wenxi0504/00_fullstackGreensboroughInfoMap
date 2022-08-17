@@ -35,11 +35,6 @@ function HomePage(props) {
   
       // <MeetupList meetups={loadedMeetups} />
     <Fragment>
-      <Head>
-        <title>React Meetups</title>
-        <meta name='description' content='Browse an active React meetups!'></meta>
-       
-      </Head>
       <MeetupList meetups={props.meetups} />
       </Fragment>
     )

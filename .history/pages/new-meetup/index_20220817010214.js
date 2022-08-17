@@ -26,8 +26,8 @@ function NewMeetupPage() {
         <Fragment>
              <Head>
         <title> Add a New Meetup</title>
-        <meta name='description' content='Add your own meetups!'></meta>
-
+        <meta name='description'></meta>
+        <meta content='Browse an active React meetups!'></meta>
       </Head>
       
             <NewMeetupForm onAddMeetup={addMeetupHandler} />

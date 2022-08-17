@@ -22,16 +22,7 @@ function NewMeetupPage() {
          router.push('/');
      };
 
-    return (
-        <Fragment>
-             <Head>
-        <title> Add a New Meetup</title>
-        <meta name='description' content='Add your own meetups!'></meta>
-
-      </Head>
-      
-            <NewMeetupForm onAddMeetup={addMeetupHandler} />
-              </Fragment>)
+    return <NewMeetupForm onAddMeetup={ addMeetupHandler} />
 }
 
 
