@@ -1,13 +1,8 @@
-import { MongoClient,ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { Fragment } from 'react';
 import MeetupDetail from '../../components/meetups/MeetupDetail.module';
-
-function meetupDetails(props) {
-    return <MeetupDetail
-        image={props.meetupData.image}
-        title={props.meetupData.title}
-        address={props.meetupData.address}
-        description={ props.meetupData.description} />
+function meetupDetails() {
+    return <MeetupDetail image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg" title="First Meetup" address="some street 5" description="This is a first meet up"/>
 }
 
 export async function getStaticPaths() {
@@ -42,27 +37,18 @@ export async function getStaticProps(context) {
     const client=await MongoClient.connect('mongodb+srv://......')
     const db = client.db();
     const meetupCollection = db.meetupCollection('meetups');
-    const selectedMeetup = await meetupCollection.findOne({
-        _id:ObjectId(meetupId),
-    });
+    const selectedMeetup = await meetupCollection.findOne();
     client.close();
     return {
         props: {
-            // meetupData: {
-            //     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
-            //    id:meetupId,
-            //     title: "First Meetup",
-            //     address: "some street 5",
-            //     description:"This is a first meet up",
-                
-            // }
             meetupData: {
-                id: selectedMeetup._id.toString(),
-                title: selectedMeetup.title,
-                address: selectedMeetup.address,
-                image: selectedMeetup.image,
-                description:selectedMeetup.description
-            },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg",
+               id:meetupId,
+                title: "First Meetup",
+                address: "some street 5",
+                description:"This is a first meet up",
+                
+            }
         }
     }
 

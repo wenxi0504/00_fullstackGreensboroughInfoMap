@@ -56,13 +56,7 @@ export async function getStaticProps(context) {
             //     description:"This is a first meet up",
                 
             // }
-            meetupData: {
-                id: selectedMeetup._id.toString(),
-                title: selectedMeetup.title,
-                address: selectedMeetup.address,
-                image: selectedMeetup.image,
-                description:selectedMeetup.description
-            },
+            meetupData:selectedMeetup,
         }
     }
 

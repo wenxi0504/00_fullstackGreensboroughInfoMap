@@ -1,4 +1,4 @@
-import { MongoClient,ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { Fragment } from 'react';
 import MeetupDetail from '../../components/meetups/MeetupDetail.module';
 
@@ -43,7 +43,7 @@ export async function getStaticProps(context) {
     const db = client.db();
     const meetupCollection = db.meetupCollection('meetups');
     const selectedMeetup = await meetupCollection.findOne({
-        _id:ObjectId(meetupId),
+        _id:meetupId
     });
     client.close();
     return {
@@ -56,13 +56,7 @@ export async function getStaticProps(context) {
             //     description:"This is a first meet up",
                 
             // }
-            meetupData: {
-                id: selectedMeetup._id.toString(),
-                title: selectedMeetup.title,
-                address: selectedMeetup.address,
-                image: selectedMeetup.image,
-                description:selectedMeetup.description
-            },
+            meetupData:selectedMeetup,
         }
     }
 
