@@ -46,18 +46,10 @@ export async function getStaticProps() {
     'mongodb+srv://...'
   );
   const db = client.db();
-  const meetupsCollection = db.collection('meetups');
-  const meetups=meetupsCollection.find().toArray();
-  client.close();
+  const meetupCollection = db.collection('meetups');
   return {
     props: {
-      // meetups: DUMMY_MEETUPS,
-      meetups: meetups.map(meetup => ({ 
-        title: meetup.title,
-        address: meetup.address,
-        image: meetup.image,
-          id:meetup._id.toString(),
-      })),
+      meetups: DUMMY_MEETUPS,
     },
     revalidate: 1
   };
